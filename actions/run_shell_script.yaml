@@ -1,0 +1,14 @@
+---
+name: run_shell_script
+pack: example
+runner_type: local-shell-script
+description: Run shell scirpt
+enabled: true
+entry_point: scripts/run_shell_script.sh
+parameters:
+  message:
+    type: string
+    description: a message to echo
+    default: This is a default message
+    required: true
+    position: 1
