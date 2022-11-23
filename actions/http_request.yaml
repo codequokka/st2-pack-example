@@ -1,0 +1,12 @@
+---
+name: http_request
+pack: example
+runner_type: http-request
+description: Exec HTTP request
+enabled: true
+parameters:
+  url:
+    description: a URL to request
+    type: string
+    default: "{{ config_context.url }}"
+    required: true

@@ -4,3 +4,8 @@ password:
   type: string
   secret: true
   required: true
+
+url:
+  description: url
+  type: string
+  required: true
