@@ -1,0 +1,12 @@
+---
+name: test_workflow
+pack: example
+description: Test workflow
+runner_type: orquesta
+entry_point: workflows/test_workflow.yaml
+enabled: true
+parameters:
+  host:
+    type: string
+    required: true
+    default: host1

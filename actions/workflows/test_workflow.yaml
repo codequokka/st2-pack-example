@@ -1,0 +1,36 @@
+version: 1.0
+
+description: Test workflow
+
+input:
+  - host
+
+vars:
+  - run_shell_script_reult: null
+  - http_request_result: null
+
+output:
+  - run_shell_script_reult: <% ctx().run_shell_script_reult %>
+  - http_request_result: <% ctx().http_request_result %>
+
+tasks:
+  run_shell_script:
+    action: example.run_shell_script
+    input:
+      password: <% ctx().host %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - run_shell_script_reult: <% result().stdout %>
+        do: http_request
+
+  http_request:
+    action: example.http_request
+    input:
+      url: https://www.google.co.jp
+      # url: <% ctx().run_shell_script_reult %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - http_request_result: <% result().body %>
+        do: noop
