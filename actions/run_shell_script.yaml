@@ -12,3 +12,9 @@ parameters:
     default: This is a default message
     required: true
     position: 1
+  password:
+    type: string
+    description: password
+    default: "{{ config_context.password }}"
+    required: true
+    position: 2

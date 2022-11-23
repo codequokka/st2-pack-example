@@ -1,0 +1,6 @@
+---
+password:
+  description: password
+  type: string
+  secret: true
+  required: true
